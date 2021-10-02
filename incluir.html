@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <title>Formulário</title>
+</head>
+<body>
+
+  <nav class="nav nav-pills justify-content-end">
+    <a class="nav-item nav-link" href="./index5.html">Home</a>
+    <a class="nav-item nav-link" href="./filtra.html">Filtrar</a>
+    <a class="nav-item nav-link active" href="./incluir.html">Incluir</a>
+    <div class="dropdown">
+    <a class="nav-item nav-link dropdown-toggle" data-toggle="dropdown" href="#">Transações</a>
+    <div class="dropdown-menu">
+        <a class="dropdown-item" href="#">Depositar</a>
+        <a class="dropdown-item" href="#">Sacar</a>
+        <a class="dropdown-item" href="#">Transferir</a>
+    </div>
+    </div>
+  </nav>
+
+    <div class="form-incluir">
+
+        <h4>Incluir Cliente</h4>
+
+        <form class="form" id="form">
+            <label for="nome">Nome:</label>
+            <input type="text" name="nome" id="inputNome" required>
+            <label for="nascimento">Nascimento:</label>
+            <input type="date" name="nascimento" id="inputNascimento" required>
+            <label for="telefone">Telefone:</label>
+            <input type="tel" name="telefone" id="inputTelefone" required>
+            <button class="btn btn-dark" id="submit">Enviar</button>
+            <div id="div-erro"></div>
+        </form>
+        
+    </div>
+
+
+</body>
+<!-- <script type='module' src="./scripts/criaCliente.js"></script> -->
+<!-- <script type="module" scr="./scripts/loadTabela.js"></script> -->
+<!-- <script type="module" src="./scripts/transacoes.js"></script> -->
+<script type="module" src="./scripts/criaCliente.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+</html>

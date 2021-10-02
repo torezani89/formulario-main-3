@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <title>Formulário</title>
+</head>
+<body>
+
+  <ul class="nav nav-pills justify-content-end">
+    <li class="nav-item">
+      <a class="nav-link active" href="./index5.html">Home</a>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-link" href="./filtra.html">Filtrar</a>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-link" href="./incluir.html">Incluir</a>
+    </li>
+
+    <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Transações</a>
+      <div class="dropdown-menu">
+        <a class="dropdown-item" href="#">Depositar</a>
+        <a class="dropdown-item" href="#">Sacar</a>
+        <a class="dropdown-item" href="#">Transferir</a>
+      </div>
+    </li>
+
+  </ul>
+
+    <div class="div-table">
+
+      <table class="table table-dark table-hover" id="table">
+        <thead>
+          <tr>
+            <th>Nome</th>
+            <th>Nascimento</th>
+            <th>Telefone</th>
+            <th>Saldo(R$)</th>
+            <th class="th-acoes">Ações</th>
+          </tr>
+        </thead>
+        <tbody id=tbody>
+        
+        </tbody>
+      
+      </table>
+
+    </div>
+
+    <div class="form-transacoes">
+
+      <h4>Transações Financeiras</h4>
+
+      <form id="transacoes">
+  
+        <fieldset>
+          <legend>Depositar</legend> <br>
+          <label for="valorDeposito">R$ </label>
+          <input type="number" name="deposito" id="valorDeposito" placeholder="Ex: 50.00" required>
+          <label for="destinatario">Para: </label>
+          <select name="destinatario" id="destinatario" style="width: 200px;" multiple>
+  
+          </select> <br><br>
+          <button class='btn btn-primary' id="depositar">Depositar</button> <div class="div-deposito"></div> <br>
+        </fieldset>
+
+        <hr>
+  
+        <fieldset style="margin-top: 20px;">
+          <legend>Sacar</legend> <br>
+          <label for="valorSaque">R$ </label>
+          <input type="number" name="saque" id="valorSaque" placeholder="Ex: 50.00" required>
+          <label for="cliente">De: </label>
+          <input list='cliente-options' name="cliente" id="cliente">
+          <datalist id="cliente-options"> 
+            
+          </datalist> <br> <br>
+          <button class="btn btn-danger" id="sacar">Sacar</button> <div class="div-saque"></div> <br> 
+        </fieldset>
+
+        <hr>
+
+        <fieldset style="margin-top: 20px;">
+          <legend>Transferir</legend> <br>
+          <label for="transferencia">R$ </label>
+          <input type="number" name="transferencia" id="valorTransf" placeholder="Ex: 50.00" required>
+          <label for="sacado">De: </label>
+          <input type="text" name="sacado" id="sacado" required>
+          <label for="beneficiario">Para: </label>
+          <input type="text" name="beneficiario" id="beneficiario" required > <br><br>
+          <button class="btn btn-success" id="transferir">Transferir</button> <div class="div-transf"></div>
+        </fieldset>
+  
+      </form>  
+
+    </div>
+
+
+</body>
+<!-- <script type='module' src="./scripts/criaCliente.js"></script> -->
+<!-- <script type="module" scr="./scripts/loadTabela.js"></script> -->
+<!-- <script type="module" src="./scripts/transacoes.js"></script> -->
+<script type="module" src="./scripts/script.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+</html>

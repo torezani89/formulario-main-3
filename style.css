@@ -1,0 +1,89 @@
+
+/* body {
+	position: relative;
+} */
+
+
+.div-table {
+	margin-top: 10px;
+	margin-bottom: 0px;
+	border-bottom: 1px solid black;
+}
+
+
+.th-acoes {
+    text-align: center;
+}
+
+.celButton {
+	text-align: center;
+}
+
+.btDeleta::before {
+	content: '❌';
+}
+
+.btEdita::before {
+	content: '✏️';
+}
+
+.form-incluir {
+	background-color: darkgrey;
+	padding-bottom: 20px;
+	border-bottom: 1px solid black;
+}
+
+.form-transacoes {
+	background-color:mediumpurple;
+	padding-bottom: 20px;
+}
+
+h4 {
+	font-size: large;
+	text-align: center;
+	padding-top: 20px;
+	padding-bottom: 40px;
+}
+
+/* .form {
+	margin-left: 40%;
+} */
+
+fieldset > legend {
+	color: white;
+}
+
+.div-deposito, .div-saque, .div-transf {
+	display: none;
+}
+
+.p-erro {
+	color: red;
+	margin: 0;
+}
+
+.p-sucesso {
+	color:green;
+	margin: 0;
+}
+
+.div-filtrar {
+	width: 50px;
+	margin-top: 30px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.invisivel {
+	display: none;
+}
+
+.invisivel2 {
+	display: none;
+}
+
+.selecionado {
+	border:2px solid orangered;
+}
+
+
