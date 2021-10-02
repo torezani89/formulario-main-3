@@ -67,10 +67,11 @@ function criaCelulas() {
 function criaBotaoDeleta () {
 	let botaoDeleta = document.createElement('button');
 	botaoDeleta.classList.add('btDeleta');
+	botaoDeleta.classList.add('opaco');
 	botaoDeleta.title = "Deletar";	
 	botaoDeleta.setAttribute('disabled', 'disabled');
 	// botaoDeleta.innerHTML = 'X';
-	// botaoDeleta.setAttribute('onclick', 'deletaCliente(event)');
+	botaoDeleta.setAttribute('onclick', 'deletaCliente(event)');
 	return botaoDeleta;
 }
 
@@ -86,6 +87,7 @@ function escutaBotaoDeleta () {
 function criaBotaoEdita() {
 	let botaoEdita = document.createElement('button');
 	botaoEdita.classList.add('btEdita');
+	botaoEdita.classList.add('opaco');
 	botaoEdita.title = "Editar";
 	botaoEdita.setAttribute('disabled', 'disabled');
 	// botaoEdita.setAttribute('onclick', 'editaCliente(event.target)')
