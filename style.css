@@ -19,8 +19,18 @@
 	text-align: center;
 }
 
+.btDeleta {
+	opacity: 100%;
+	transition: 3s;
+}
+
 .btDeleta::before {
 	content: '❌';
+}
+
+.btEdita {
+	opacity: 100%;
+	transition: 3s;
 }
 
 .btEdita::before {
@@ -84,6 +94,12 @@ fieldset > legend {
 
 .selecionado {
 	border:2px solid orangered;
+	transition: 1s;
+}
+
+.opaco {
+	opacity: 20%;
+	transition: 1s;
 }
 
 
