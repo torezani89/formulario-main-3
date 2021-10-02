@@ -10,12 +10,16 @@ function pegaPosicao(param) {
 	console.log(clientes[posicaoAnterior]);
 	clientes[posicaoAnterior].querySelector('.btEdita').disabled = true;
 	clientes[posicaoAnterior].querySelector('.btDeleta').disabled = true;
+	clientes[posicaoAnterior].querySelector('.btEdita').classList.add('opaco');
+	clientes[posicaoAnterior].querySelector('.btDeleta').classList.add('opaco');
 	clientes[posicaoAnterior].classList.remove('selecionado');
 
 	// Habilita cliente clicado.
 	let clienteClicado = param.target.closest('tr');
 	clienteClicado.querySelector('.btEdita').disabled = false;
 	clienteClicado.querySelector('.btDeleta').disabled = false;
+	clienteClicado.querySelector('.btEdita').classList.remove('opaco');
+	clienteClicado.querySelector('.btDeleta').classList.remove('opaco');
 	clienteClicado.classList.add('selecionado');
 
 	// Pega posicao do cliente clicado
