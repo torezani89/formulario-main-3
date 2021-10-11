@@ -16,7 +16,9 @@ function carregaTabela(arrayDados) {
 			celNome.innerHTML = element.nome;
 			
 			let celNascim = document.createElement('td');
-			celNascim.innerHTML = element.nascimento;
+			let data = new Date(element.nascimento);
+			celNascim.innerHTML = (data.getDate() + 1) + "/" + (data.getMonth() + 1) + "/" + data.getFullYear();
+			// celNascim.innerHTML = element.nascimento;
 
 			let celTel = document.createElement('td');
 			celTel.classList.add('celTel');
