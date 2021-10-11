@@ -21,7 +21,9 @@ function criaCelulas() {
 			celNome.innerHTML = element.nome;
 			
 			let celNascim = document.createElement('td');
-			celNascim.innerHTML = element.nascimento;
+			let data = new Date(element.nascimento);
+			// celNascim.innerHTML = data.toLocaleDateString(); O dia fica com 1 a menos.
+			celNascim.innerHTML = data.toLocaleDateString('pt-BR', {timeZone: 'UTC'});
 
 			let celTel = document.createElement('td');
 			celTel.classList.add('celTel');
@@ -67,7 +69,7 @@ function criaCelulas() {
 function criaBotaoDeleta () {
 	let botaoDeleta = document.createElement('button');
 	botaoDeleta.classList.add('btDeleta');
-	botaoDeleta.classList.add('opaco');
+	// botaoDeleta.classList.add('opaco');
 	botaoDeleta.title = "Deletar";	
 	botaoDeleta.setAttribute('disabled', 'disabled');
 	// botaoDeleta.innerHTML = 'X';
@@ -87,7 +89,7 @@ function escutaBotaoDeleta () {
 function criaBotaoEdita() {
 	let botaoEdita = document.createElement('button');
 	botaoEdita.classList.add('btEdita');
-	botaoEdita.classList.add('opaco');
+	// botaoEdita.classList.add('opaco');
 	botaoEdita.title = "Editar";
 	botaoEdita.setAttribute('disabled', 'disabled');
 	// botaoEdita.setAttribute('onclick', 'editaCliente(event.target)')
