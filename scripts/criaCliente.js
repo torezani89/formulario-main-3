@@ -36,6 +36,7 @@ function criaCliente(event) {
         let newCliente = new Cliente(nome.value, nascimento.value, telefone.value);
         setLocalStorage(newCliente);
         // console.log(newCliente);
+        window.location.href = "./index5.html"
     }
 	
 }
@@ -73,16 +74,12 @@ function msgErro(param) {
     erro.innerHTML += param + "<br>";
 }
 
-export {nome, nascimento, telefone}
-
 
 //<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< ADICIONA EVENTO >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
-if (window.location.href.indexOf('index5') > -1) {
+let submit = document.getElementById('submit');
 
-    let submit = document.getElementById('submit');
+submit.addEventListener('click', criaCliente);
 
-    submit.addEventListener('click', criaCliente);
-
-}
+export {nome, nascimento, telefone, criaCliente}
  
