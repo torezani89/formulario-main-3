@@ -10,7 +10,6 @@
 	border-bottom: 1px solid black;
 }
 
-
 .th-acoes {
     text-align: center;
 }
@@ -19,22 +18,24 @@
 	text-align: center;
 }
 
-.btDeleta {
-	opacity: 100%;
+/* .btDeleta, .btEdita {
 	transition: 3s;
-}
+} */
 
 .btDeleta::before {
 	content: '❌';
 }
 
-.btEdita {
-	opacity: 100%;
-	transition: 3s;
-}
-
 .btEdita::before {
 	content: '✏️';
+}
+
+.btDeleta:not(:disabled), .btEdita:not(:disabled) {
+	transition: 1.5s;
+}
+
+.btDeleta:disabled, .btEdita:disabled {
+	transition: 1.5s;
 }
 
 .form-incluir {
@@ -93,13 +94,17 @@ fieldset > legend {
 }
 
 .selecionado {
-	border:2px solid orangered;
-	transition: 1s;
+	border: 2px solid rgb(0, 204, 255);
+	/* background-color: rgb(160, 65, 96); */
+	transition: 1.5s;
 }
 
-.opaco {
-	opacity: 20%;
-	transition: 1s;
+.ascendente::after {
+	content: "▾";
+}
+
+.descendente::after {
+	content: "▴";
 }
 
 
