@@ -11,11 +11,18 @@
 
 <body>
 
-    <nav class="nav justify-content-end">
-        <a class="nav-link" href="./index5.html">Home</a>
-        <a class="nav-link" href="./filtra.html">Filtrar</a>
-        <a class="nav-link" href="./incluir.html">Incluir</a>
-        <a class="nav-link" href="#">Transações</a>
+    <nav class="nav nav-pills justify-content-end">
+        <a class="nav-item nav-link" href="./index5.html">Clientes</a>
+        <a class="nav-item nav-link active" href="./filtra.html">Filtrar</a>
+        <a class="nav-item nav-link" href="./incluir.html">Incluir</a>
+        <div class="dropdown">
+        <a class="nav-item nav-link dropdown-toggle" data-toggle="dropdown" href="#">Transações</a>
+        <div class="dropdown-menu">
+            <a class="dropdown-item" href="./depositar.html">Depositar</a>
+            <a class="dropdown-item" href="./sacar.html">Sacar</a>
+            <a class="dropdown-item" href="./transferir.html">Transferir</a>
+        </div>
+        </div>
     </nav>
 
     <form class="form" id="form">
