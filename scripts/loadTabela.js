@@ -9,6 +9,16 @@ let erro = document.getElementById('div-erro');
 
 // <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< CRIA CELULAS >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
+function formatNumber(params) {
+	const formatter = new Intl.NumberFormat('pt-BR', {
+		style: 'currency',
+		currency: 'BRL',
+		minimumFractionDigits: 2,
+	});
+	
+	return formatter.format(params);
+}
+
 function criaCelulas() {
 
 	if (window.location.href.indexOf('index5') > -1) {
@@ -36,7 +46,7 @@ function criaCelulas() {
 			}
 
 			let celSaldo = document.createElement('td');
-			celSaldo.innerHTML = "R$ " + element.saldo;
+			celSaldo.innerHTML = formatNumber(element.saldo);
 			
 			let celButton = document.createElement('td');
 			celButton.classList.add('celButton');
