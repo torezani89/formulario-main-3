@@ -21,16 +21,22 @@ function sortTable(table, dir, n) {
             //comece dizendo que não deve haver alternância/troca:
             shouldSwitch = false;
             /*Obtenha os dois elementos que você deseja comparar, um da linha atual e o outro da próxima:*/
-            x = rows[i].getElementsByTagName("TD")[n];
-            y = rows[i + 1].getElementsByTagName("TD")[n];
+            if (n == 3) {
+                x = rows[i].getElementsByTagName("TD")[n].innerHTML;
+                y = rows[i + 1].getElementsByTagName("TD")[n].innerHTML;
+            } else {
+                x = rows[i].getElementsByTagName("TD")[n].innerHTML.toLowerCase();
+                y = rows[i + 1].getElementsByTagName("TD")[n].innerHTML.toLowerCase();
+            }
+
             /*verifique se as duas linhas devem mudar de lugar, com base na direção, asc ou desc:*/
             if (dir == "asc") {
-            if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+            if (x > y) {
                 shouldSwitch = true;
                 break; //Pare o loop.
             }
             } else if (dir == "desc") {
-            if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+            if (x < y) {
                 shouldSwitch = true;
                 break; //Pare o loop
             }
