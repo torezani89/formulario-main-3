@@ -1,28 +1,28 @@
 
     import {criaCelulas} from "./loadTabela.js";
-    import {preparaDeposito, preparaSaque, transferir, destinatariosDeposito, 
-        clientesSaque} from "./transacoes.js";
+    // import {preparaDeposito, preparaSaque, transferir, destinatariosDeposito, 
+    //     clientesSaque} from "./transacoes.js";
     import {sortTable} from "./ordenaTabela.js";
     // import {criaCliente} from "./criaCliente.js"
 
 // <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< CARREGAR TABELA >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
 criaCelulas();
-clientesSaque();
-destinatariosDeposito();    
+// clientesSaque();
+// destinatariosDeposito();    
 
 
 // <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< BOTOES TRANSACOES FINANCEIRAS >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
-let botaoDepositar = document.querySelector('#depositar');
-let botaoSacar = document.querySelector('#sacar');
-let botaoTranf = document.querySelector('#transferir');
+// let botaoDepositar = document.querySelector('#depositar');
+// let botaoSacar = document.querySelector('#sacar');
+// let botaoTranf = document.querySelector('#transferir');
 
-botaoDepositar.addEventListener('click', preparaDeposito);
+// botaoDepositar.addEventListener('click', preparaDeposito);
 
-botaoSacar.addEventListener('click', preparaSaque);
+// botaoSacar.addEventListener('click', preparaSaque);
 
-botaoTranf.addEventListener('click', transferir); 
+// botaoTranf.addEventListener('click', transferir); 
 
 // <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< EVENTOS ORDENAR TABELA >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
@@ -65,5 +65,17 @@ thSaldo.addEventListener('dblclick', function () {
   }
 
 })
+
+document.querySelector('#converte').addEventListener('click', function () {
+  let dadosLocalStorage = JSON.parse(localStorage.getItem('clientes') || '[]');
+  dadosLocalStorage.forEach(element => {
+    parseFloat(element.saldo).toFixed(2);
+  });
+  console.log(dadosLocalStorage);
+  localStorage.setItem('clientes', JSON.stringify(dadosLocalStorage));
+});
+
+
+
 
 // <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< EVENTO BOTAO INCLUIR CLIENTE >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
