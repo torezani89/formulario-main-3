@@ -95,7 +95,6 @@ fieldset > legend {
 
 .selecionado {
 	border: 2px solid rgb(0, 204, 255);
-	/* background-color: rgb(160, 65, 96); */
 	transition: 1.5s;
 }
 
