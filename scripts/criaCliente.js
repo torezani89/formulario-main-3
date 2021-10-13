@@ -16,7 +16,7 @@ class Cliente {
 		this.nome = a;
 		this.nascimento = b;
 		this.telefone = c;
-        this.saldo = saldoInicial.toFixed(2);
+        this.saldo = parseFloat(saldoInicial).toFixed(2);
 	}
 
 }
@@ -77,9 +77,13 @@ function msgErro(param) {
 
 //<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< ADICIONA EVENTO >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
-let submit = document.getElementById('submit');
+if (window.location.href.indexOf("incluir") > 1) {
 
-submit.addEventListener('click', criaCliente);
+    let submit = document.getElementById('submit');
+    submit.addEventListener('click', criaCliente);   
+}
+
+//<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< EXPORT >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
 export {nome, nascimento, telefone, criaCliente}
  
