@@ -1,5 +1,6 @@
 import {atualizaLocalStorage} from "./service.js";
 
+
 // <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< DEPOSITAR >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
 let achouDestinatario;
@@ -45,7 +46,10 @@ function preparaDeposito(event) {
 
     event.preventDefault();
 
-    let valor = parseFloat(document.getElementById('valorDeposito').value).toFixed(2);
+    let valor = document.getElementById('valorDeposito').value
+    valor = valor.replace(/\./g, '')
+    valor = valor.replace(',', '.')
+    valor = parseFloat(valor)
     let selected = document.querySelectorAll('#destinatario option:checked')
     let destinatarios = Array.from(selected).map(el => el.value);
     let divDep = document.querySelector('.div-deposito');
@@ -54,7 +58,7 @@ function preparaDeposito(event) {
     divDep.innerHTML = "";
 
     verificaDeposito(destinatarios, valor, divDep);
-    
+
     if (achouDestinatario == true) {
         depositaValor(valor, destinatariosIndex, divDep, operacao);
     }
@@ -69,21 +73,8 @@ function depositaValor(valor, destinatariosIndex, divDep, operacao) {
     for (let i = 0; i < destinatariosIndex.length; i++) {
 
         let indice = destinatariosIndex[i];
-        let destinatario = dadosLocalStorage[indice];
-        // console.log(dadosLocalStorage[indice].saldo);
-        // destinatario.saldo = parseFloat(destinatario.saldo + valor.toFixed(2));
-        var saldo = parseFloat(destinatario.saldo).toFixed(2);
-        console.log(saldo);
-        console.log(typeof(saldo));
-
-        var valore = parseFloat(valor);
-        console.log( valore );  
-        console.log(typeof(valore));
-
-        var result = destinatario.saldo + valore;
-        console.log(result)
-        console.log(typeof(result))
-        
+        let destinatario = dadosLocalStorage[indice];   
+        destinatario.saldo = parseFloat(destinatario.saldo) + parseFloat(valor)        
         arrayDestinatarios.push(destinatario.nome);
 
     }
@@ -121,8 +112,28 @@ if (window.location.href.indexOf('depositar') > 1) {
     destinatariosDeposito();
 
     let botaoDepositar = document.querySelector('#depositar');
-    botaoDepositar.addEventListener('click', preparaDeposito);    
+    botaoDepositar.addEventListener('click', preparaDeposito);
 }
+
+// <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< FORMATA INPUT >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+function formataValor(i) {
+	var v = i.value.replace(/\D/g,'');
+	v = (v/100).toFixed(2) + '';
+	v = v.replace(".", ",");
+	v = v.replace(/(\d)(\d{3})(\d{3}),/g, "$1.$2.$3,");
+	v = v.replace(/(\d)(\d{3}),/g, "$1.$2,");
+	i.value = v;
+}
+
+// document.querySelector('#valorDeposito').addEventListener('keyup', function () {
+//     var v = this.value.replace(/\D/g,'');
+//     v = (v/100).toFixed(2) + '';
+//     v = v.replace(".", ",");
+//     v = v.replace(/(\d)(\d{3})(\d{3}),/g, "$1.$2.$3,");
+//     v = v.replace(/(\d)(\d{3}),/g, "$1.$2,");
+//     this.value = v;
+// })
 
 // <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< EXPORT >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
