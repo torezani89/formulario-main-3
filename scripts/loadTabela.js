@@ -117,4 +117,4 @@ function escutaBotaoEdita () {
 
 // <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< EXPORT >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
-export {criaCelulas}
+export {criaCelulas, formatNumber}
