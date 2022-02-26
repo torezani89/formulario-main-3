@@ -1,4 +1,5 @@
 import {atualizaLocalStorage} from "./service.js";
+import {formatNumber} from "./loadTabela.js"
 
 
 // <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< DEPOSITAR >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
@@ -100,7 +101,7 @@ function destinatariosDeposito() {
 // <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< MENSAGENS >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
 function mensagemSucesso (valor, divMsg, operacao, arrayDestinatarios) {
-    divMsg.innerHTML = `<p class='p-sucesso'>${"R$" + valor.toFixed(2) + " " + operacao} com sucesso
+    divMsg.innerHTML = `<p class='p-sucesso'>${formatNumber(valor) + " " + operacao} com sucesso
                             para ${arrayDestinatarios} </p>`;
     divMsg.style.display = 'inline-block';
 }
@@ -113,27 +114,32 @@ if (window.location.href.indexOf('depositar') > 1) {
 
     let botaoDepositar = document.querySelector('#depositar');
     botaoDepositar.addEventListener('click', preparaDeposito);
+
+    //Formatar valor input
+    document.querySelector('#valorDeposito').addEventListener('keyup', function () {
+        var v = this.value.replace(/\D/g,'');
+        v = (v/100).toFixed(2) + '';
+        v = v.replace(".", ",");
+        v = v.replace(/(\d)(\d{3})(\d{3}),/g, "$1.$2.$3,");
+        v = v.replace(/(\d)(\d{3}),/g, "$1.$2,");
+        this.value = v;
+    })
+
 }
 
 // <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< FORMATA INPUT >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
-function formataValor(i) {
-	var v = i.value.replace(/\D/g,'');
-	v = (v/100).toFixed(2) + '';
-	v = v.replace(".", ",");
-	v = v.replace(/(\d)(\d{3})(\d{3}),/g, "$1.$2.$3,");
-	v = v.replace(/(\d)(\d{3}),/g, "$1.$2,");
-	i.value = v;
-}
-
-// document.querySelector('#valorDeposito').addEventListener('keyup', function () {
-//     var v = this.value.replace(/\D/g,'');
-//     v = (v/100).toFixed(2) + '';
-//     v = v.replace(".", ",");
-//     v = v.replace(/(\d)(\d{3})(\d{3}),/g, "$1.$2.$3,");
-//     v = v.replace(/(\d)(\d{3}),/g, "$1.$2,");
-//     this.value = v;
-// })
+/* NÃO FUNCIONA CHAMANDO DIRETAMENTE PELO INPUT HTML COM 'ONKEYUP'. Motivo:
+Não é possível chamar diretamente no elemento HTML funções armazenadas em scripts type=module, pois 
+esses scripts não ficam disponíveis globalmente. */
+// function formataValor(i) {
+// 	var v = i.value.replace(/\D/g,'');
+// 	v = (v/100).toFixed(2) + '';
+// 	v = v.replace(".", ",");
+// 	v = v.replace(/(\d)(\d{3})(\d{3}),/g, "$1.$2.$3,");
+// 	v = v.replace(/(\d)(\d{3}),/g, "$1.$2,");
+// 	i.value = v;
+// }
 
 // <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< EXPORT >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
