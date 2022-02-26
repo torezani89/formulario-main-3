@@ -79,10 +79,8 @@ fieldset > legend {
 }
 
 .div-filtrar {
-	width: 50px;
 	margin-top: 30px;
-	margin-left: auto;
-	margin-right: auto;
+	margin-bottom: 30px;
 }
 
 .invisivel {
