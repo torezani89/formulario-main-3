@@ -9,14 +9,12 @@ let telefone = document.getElementById('inputTelefone');
 
 let erro = document.getElementById('div-erro');
 
-let saldoInicial = 0;
-
 class Cliente {
 	constructor(a, b, c) {
 		this.nome = a;
 		this.nascimento = b;
 		this.telefone = c;
-        this.saldo = parseFloat(saldoInicial).toFixed(2);
+        this.saldo = 0;
 	}
 
 }
