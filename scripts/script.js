@@ -66,16 +66,5 @@ thSaldo.addEventListener('dblclick', function () {
 
 })
 
-document.querySelector('#converte').addEventListener('click', function () {
-  let dadosLocalStorage = JSON.parse(localStorage.getItem('clientes') || '[]');
-  dadosLocalStorage.forEach(element => {
-    parseFloat(element.saldo).toFixed(2);
-  });
-  console.log(dadosLocalStorage);
-  localStorage.setItem('clientes', JSON.stringify(dadosLocalStorage));
-});
-
-
-
 
 // <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< EVENTO BOTAO INCLUIR CLIENTE >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
