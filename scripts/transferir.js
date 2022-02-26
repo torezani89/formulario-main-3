@@ -7,14 +7,17 @@ import {verificaDeposito, achouDestinatario, destinatariosIndex, depositaValor} 
 function transferir(event) {
     event.preventDefault();
 
-    let valor = parseFloat(document.querySelector('#valorTransf').value);
-    let cliente = document.querySelector('#sacado').value;
-    let divTransf = document.querySelector('.div-transf');
-    let beneficiario = [document.querySelector('#beneficiario').value];
+    let valor = document.querySelector('#valorTransf').value
+    valor = valor.replace(/\./g, '')
+    valor = valor.replace(',', '.')
+    valor = parseFloat(valor)
+    let cliente = document.querySelector('#sacado').value
+    let divTransf = document.querySelector('.div-transf')
+    let beneficiario = [document.querySelector('#beneficiario').value]
     let operacao = "transferido"
 
-    verificaSaque(valor, cliente, divTransf);
-    verificaDeposito(beneficiario, valor, divTransf);
+    verificaSaque(valor, cliente, divTransf)
+    verificaDeposito(beneficiario, valor, divTransf)
 
     if (podeSacar == true && achouDestinatario == true) {
         sacaValor(valor, clienteIndex, divTransf, operacao);
@@ -23,10 +26,21 @@ function transferir(event) {
 
 }
 
+// <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< FORMATA INPUT >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+document.querySelector('#valorTransf').addEventListener('keyup', function () {
+    var v = this.value.replace(/\D/g,'');
+    v = (v/100).toFixed(2) + '';
+    v = v.replace(".", ",");
+    v = v.replace(/(\d)(\d{3})(\d{3}),/g, "$1.$2.$3,");
+    v = v.replace(/(\d)(\d{3}),/g, "$1.$2,");
+    this.value = v;
+})
+
 // <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< MENSAGENS >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
-let botaoTranf = document.querySelector('#transferir');
+let botaoTransf = document.querySelector('#transferir');
 
-botaoTranf.addEventListener('click', transferir);
+botaoTransf.addEventListener('click', transferir);
 
 
