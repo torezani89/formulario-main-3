@@ -24,22 +24,33 @@
     </div>
   </nav>
 
-    <div class="form-incluir">
+    <!-- <div> -->
 
         <h4>Incluir Cliente</h4>
 
-        <form class="form" id="form">
-            <label for="nome">Nome:</label>
-            <input type="text" name="nome" id="inputNome" required autofocus>
-            <label for="nascimento">Nascimento:</label>
-            <input type="date" name="nascimento" id="inputNascimento" required>
-            <label for="telefone">Telefone:</label>
-            <input type="tel" name="telefone" id="inputTelefone" required>
+        <form id="form">
+
+            <div class="form-group">
+                <label for="nome">Nome:</label>
+                <input type="text" class="form-control" name="nome" id="inputNome" required autofocus>
+            </div>
+            
+            <div class="form-group">
+                <label for="nascimento">Nascimento:</label>
+                <input type="date" class="form-control" name="nascimento" id="inputNascimento" required>
+            </div>
+
+            <div class="form-group">
+                <label for="telefone">Telefone:</label>
+                <input type="tel" class="form-control" name="telefone" id="inputTelefone" required>
+            </div>
+
             <button class="btn btn-dark" id="submit">Enviar</button>
             <div id="div-erro"></div>
+
         </form>
-        
-    </div>
+    
+    <!-- </div> -->
 
 
 </body>
